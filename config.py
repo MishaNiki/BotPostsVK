@@ -5,4 +5,4 @@ BOT_TOKEN = ''
 VK_TOKEN = ''
 
 # url to get access token vk
-# https://oauth.vk.com/authorize?client_id=&display=page&redirect_uri=&scope=wall,photos&response_type=token&v=5.52
+# https://oauth.vk.com/authorize?client_id=&display=page&redirect_uri=&scope=wall,photos,video&response_type=token&v=5.52

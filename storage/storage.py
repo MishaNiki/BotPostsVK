@@ -17,3 +17,6 @@ class TestStorage:
         if self.chats.get(id) is None :
             self.chats[id] = chat.Chat()
         return self.chats[id]
+
+    def updateState(self, id_chat, state, context):
+        pass

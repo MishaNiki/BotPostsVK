@@ -117,18 +117,19 @@ def text(update, context):
 
             if len(post.photos) == 0:
                 # the post has no content only text
-                update.message.chat.send_message(post.text + '\n' + str(post.date))
+                update.message.chat.send_message('{}\n{}\n{}\n{}'.format(post.text, post.video, post.link, str(post.date)))
             elif len(post.photos) == 1 and len(post.text) < 550:
                 # the post has one image and the text fits into the description
                 update.message.chat.send_photo(post.photos[0], caption=post.text + '\n' + str(post.date))
             else :
-                # more than one image, add a media group
-                update.message.chat.send_message(str(post.date) + '\n' + post.text)
                 # create media group
                 media = []
                 for photo in post.photos:
                     media.append(InputMediaPhoto(photo))
                 bot.send_media_group(update.message.chat.id, media)
+                # more than one image, add a media group
+                update.message.chat.send_message(str(post.date) + '\n' + post.text)
+
 
         # update state chat
         STORAGE.get_chat(update.message.chat.id).set_state(chat.State.INACTIVE)

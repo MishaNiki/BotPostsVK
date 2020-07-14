@@ -12,6 +12,8 @@ class Post:
         self.text = text
         self.date = date
         self.photos = []
+        self.link = ''
+        self.video = ''
 
 
 class VK:
@@ -75,6 +77,19 @@ class VK:
                                 max = int(temp[0])
                                 max_url = value
                         post.photos.append(max_url) # add largest image
+
+                    elif attac['type'] == "link":
+                        post.link = attac['link']['url']
+                    elif attac['type'] == "video" :
+                        vk_video = requests.get('https://api.vk.com/method/video.get',
+                                     params={'owner_id': '{}_{}'\
+                                                .format(
+                                                         attac['video']['owner_id'],
+                                                         attac['video']['id']
+                                            ),
+                                             'access_token': self.token,
+                                             'v': '5.52'})
+                        post.video = vk_video.json()['response']['items'][0]['player']
 
             posts.append(post)
 
