@@ -9,13 +9,13 @@ __Теперь новости интересующих вас сообществ
 
 Нужно создать Standalone-Приложение вконтакте, для доступа к API. После получить access_token по следующему url, указав в качестве параметра id идентификатор своего приложения вконтакте:
 
----
-
 ```
 https://oauth.vk.com/authorize?client_id=&display=page&redirect_uri=&scope=wall,photos,video&response_type=token&v=5.52
 ```
 
 Ввести полученный токен в config.py поле VK_TOKEN. В поле BOT_TOKEN ввести токен от вашего бота 
+
+---
 
 
 [Маленькая демонстрация](https://youtu.be/UpGJp-h3c8U)
