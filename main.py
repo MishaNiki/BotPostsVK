@@ -31,7 +31,7 @@ def help_command(update, context):
 
 def get_posts(update, context):
     """Send a message when the command /help is issued."""
-    update.message.reply_text('Введите uuid сообщества')
+    update.message.reply_text('Введите uuid сообщества\nПример: tnull - сообщество /dev/null')
 
     STORAGE.get_chat(update.message.chat.id).set_state(chat.State.GET_POSTS_STAGE_1)
 
